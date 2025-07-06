@@ -10,6 +10,10 @@
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" type="button" role="tab">Sign In</button>
             </li>
+
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" type="button" role="tab">Admin Login</button>
+            </li>
           </ul>
         </div>
 
@@ -37,6 +41,20 @@
 
             <!-- 🔓 Sign In Form -->
             <div class="tab-pane fade" id="signin" role="tabpanel">
+              <form>
+                <div class="mb-3">
+                  <label for="signinEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="signinEmail" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                  <label for="signinPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-dark w-100">Login</button>
+              </form>
+            </div>
+
+             <div class="tab-pane fade" id="adminsignin" role="tabpanel">
               <form>
                 <div class="mb-3">
                   <label for="signinEmail" class="form-label">Email address</label>
