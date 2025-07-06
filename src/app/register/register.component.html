@@ -1,0 +1,59 @@
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header text-center bg-dark text-white">
+          <ul class="nav nav-tabs card-header-tabs justify-content-center" id="authTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab">Sign Up</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" type="button" role="tab">Sign In</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body">
+          <div class="tab-content" id="authTabsContent">
+
+            <!-- 🔐 Sign Up Form -->
+            <div class="tab-pane fade show active" id="signup" role="tabpanel">
+              <form>
+                <div class="mb-3">
+                  <label for="signupName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="signupName" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                  <label for="signupEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                  <label for="signupPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="signupPassword" placeholder="Choose a password">
+                </div>
+                <button type="submit" class="btn btn-warning w-100">Create Account</button>
+              </form>
+            </div>
+
+            <!-- 🔓 Sign In Form -->
+            <div class="tab-pane fade" id="signin" role="tabpanel">
+              <form>
+                <div class="mb-3">
+                  <label for="signinEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="signinEmail" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                  <label for="signinPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-dark w-100">Login</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
