@@ -21,7 +21,7 @@
           <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="classes" routerLinkActive="active">Classes</a>
+          <a class="nav-link" routerLink="classes" routerLinkActive="active">Training</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="trainers" routerLinkActive="active">Trainers</a>
@@ -48,25 +48,36 @@
     <h5 class="offcanvas-title" id="sidebarMenuLabel">Quick Links</h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
-    <ul class="nav flex-column">
-      <li class="nav-item mb-2">
-        <a class="nav-link text-white" routerLink="/dashboard">🏋 Services</a>
-      </li>
-      <li class="nav-item mb-2">
-        <a class="nav-link text-white" routerLink="/about">📋 About</a>
-      </li>
-      <li class="nav-item mb-2">
-        <a class="nav-link text-white" routerLink="/profile">👤 Profile</a>
-      </li>
-      <li class="nav-item mb-2">
-        <a class="nav-link text-danger" routerLink="/register" href="#">🚪 Login</a>
-      </li>
-        <li class="nav-item mb-2">
-        <a class="nav-link text-danger" href="#">🚪 Contact</a>
-      </li>
-    </ul>
-  </div>
+  <div class="offcanvas-body bg-dark text-white">
+  <ul class="nav flex-column">
+    <li class="nav-item mb-3">
+      <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="/dashboard">
+        <span class="fs-5">🏋</span> Services
+      </a>
+    </li>
+    <li class="nav-item mb-3">
+      <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="/about">
+        <span class="fs-5">📋</span> About
+      </a>
+    </li>
+    <li class="nav-item mb-3">
+      <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="/profile">
+        <span class="fs-5">👤</span> Profile
+      </a>
+    </li>
+    <li class="nav-item mb-3">
+      <a class="nav-link d-flex align-items-center gap-2 text-danger fw-semibold" routerLink="/register">
+        <span class="fs-5">🚪</span> Login
+      </a>
+    </li>
+    <li class="nav-item mb-3">
+      <a class="nav-link d-flex align-items-center gap-2 text-danger fw-semibold" routerLink="/contact">
+        <span class="fs-5">📞</span> Contact
+      </a>
+    </li>
+  </ul>
+</div>
+
 </div>
 
 
