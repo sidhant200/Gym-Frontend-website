@@ -1,0 +1,23 @@
+/* Add perspective to the parent */
+:host {
+  display: block;
+  perspective: 1000px;
+}
+
+.animated-text {
+  font-size: 3rem;
+  opacity: 0;
+  transform: scale(0.5) translateZ(-200px);
+  animation: zoomIn 1s ease-out forwards;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5) translateZ(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+}

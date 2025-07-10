@@ -8,6 +8,7 @@ import { ClassesComponent } from './classes/classes.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AboutComponent } from './about/about.component';
     ClassesComponent,
     TrainersComponent,
     RegisterComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
