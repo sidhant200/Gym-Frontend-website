@@ -7,40 +7,51 @@
       Mad Muscle
     </a>
 
-    <!-- Hamburger menu on small screens -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Hamburger button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleNavbar()"
+      [attr.aria-expanded]="!isNavbarCollapsed"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div
+      class="navbar-collapse"
+      id="navbarNav"
+      [ngClass]="{ 'collapse': isNavbarCollapsed, 'show': !isNavbarCollapsed }"
+    >
       <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+          <a class="nav-link" routerLink="home" routerLinkActive="active" (click)="closeNavbar()">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="classes" routerLinkActive="active">Training</a>
+          <a class="nav-link" routerLink="classes" routerLinkActive="active" (click)="closeNavbar()">Training</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="trainers" routerLinkActive="active">Trainers</a>
+          <a class="nav-link" routerLink="trainers" routerLinkActive="active" (click)="closeNavbar()">Trainers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+          <a class="nav-link" routerLink="register" routerLinkActive="active" (click)="closeNavbar()">Register</a>
         </li>
 
         <!-- Sidebar Toggle Button -->
         <li class="nav-item ms-3">
-          <button class="btn btn-outline-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+          <button class="btn btn-outline-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+            aria-controls="sidebarMenu">
             ☰ Menu
           </button>
         </li>
       </ul>
     </div>
+  
 
   </div>
 </nav>
+
 
 <!-- Sidebar Offcanvas Menu -->
 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
@@ -49,34 +60,34 @@
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body bg-dark text-white">
-  <ul class="nav flex-column">
-    <li class="nav-item mb-3">
-      <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="/dashboard">
-        <span class="fs-5">🏋</span> Services
-      </a>
-    </li>
-    <li class="nav-item mb-3">
-      <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="/about">
-        <span class="fs-5">📋</span> About
-      </a>
-    </li>
-    <li class="nav-item mb-3">
-      <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="/profile">
-        <span class="fs-5">👤</span> Profile
-      </a>
-    </li>
-    <li class="nav-item mb-3">
-      <a class="nav-link d-flex align-items-center gap-2 text-danger fw-semibold" routerLink="/register">
-        <span class="fs-5">🚪</span> Login
-      </a>
-    </li>
-    <li class="nav-item mb-3">
-      <a class="nav-link d-flex align-items-center gap-2 text-danger fw-semibold" routerLink="/contact">
-        <span class="fs-5">📞</span> Contact
-      </a>
-    </li>
-  </ul>
-</div>
+    <ul class="nav flex-column">
+      <li class="nav-item mb-3">
+        <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="dashboard" (click)="closeNavbar()">
+          <span class="fs-5">🏋</span> Services
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="about" (click)="closeNavbar()">
+          <span class="fs-5">📋</span> About
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a class="nav-link d-flex align-items-center gap-2 text-white fw-semibold" routerLink="profile" (click)="closeNavbar()">
+          <span class="fs-5">👤</span> Profile
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a class="nav-link d-flex align-items-center gap-2 text-danger fw-semibold" routerLink="register" (click)="closeNavbar()">
+          <span class="fs-5">🚪</span> Login
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a class="nav-link d-flex align-items-center gap-2 text-danger fw-semibold" routerLink="contact" (click)="closeNavbar()">
+          <span class="fs-5">📞</span> Contact
+        </a>
+      </li>
+    </ul>
+  </div>
 
 </div>
 
