@@ -6,6 +6,10 @@ import { TrainersComponent } from './trainers/trainers.component';
 import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminComponent } from './admin/admin.component';
+import { MemberComponent } from './member/member.component';
+import { TrainerComponent } from './trainer/trainer.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,7 +18,18 @@ const routes: Routes = [
       { path: 'trainers', component: TrainersComponent },
       { path: 'register', component: RegisterComponent },
        { path: 'about', component: AboutComponent },
-       {path: 'contact' , component:ContactComponent}
+       {path: 'contact' , component:ContactComponent},
+     {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      { path: 'member', component: MemberComponent },
+      { path: 'employee', component: EmployeeComponent },
+      {path: 'trainer' , component: TrainerComponent},
+      { path: '', redirectTo: 'member', pathMatch: 'full' }
+    ]
+  },
+
 ];
 
 @NgModule({

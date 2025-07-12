@@ -1,0 +1,25 @@
+<div class="d-flex min-vh-100">
+  <!-- Sidebar -->
+  <nav class="bg-dark text-white p-3" style="width: 240px;">
+    <h5 class="text-warning">Admin Panel</h5>
+    <ul class="nav flex-column mt-3">
+      <li class="nav-item mb-2">
+        <a class="nav-link text-white" routerLink="member" routerLinkActive="active">📋 Manage Members</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link text-white" routerLink="employee" routerLinkActive="active">👔 Manage Employees</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link text-white" routerLink="trainer" routerLinkActive="active">👔 Manage Trainers</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link text-white" routerLink="subscriptions" routerLinkActive="active">💳 Subscriptions</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Content Area -->
+  <div class="flex-grow-1 p-4 bg-light">
+    <router-outlet></router-outlet>
+  </div>
+</div>

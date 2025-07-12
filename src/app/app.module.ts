@@ -9,6 +9,10 @@ import { TrainersComponent } from './trainers/trainers.component';
 import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminComponent } from './admin/admin.component';
+import { MemberComponent } from './member/member.component';
+import { TrainerComponent } from './trainer/trainer.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ContactComponent } from './contact/contact.component';
     TrainersComponent,
     RegisterComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    AdminComponent,
+    MemberComponent,
+    TrainerComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
