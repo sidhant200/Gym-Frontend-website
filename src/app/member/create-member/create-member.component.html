@@ -1,0 +1,54 @@
+<form (ngSubmit)="onSubmit()"  class="p-3">
+  <div class="mb-3">
+    <label class="form-label fw-bold">👤 Full Name</label>
+    <input
+      class="form-control rounded-pill shadow-sm"
+      type="text"
+      name="name"
+     
+      placeholder="Enter member name"
+      required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label fw-bold">📧 Email</label>
+    <input
+      class="form-control rounded-pill shadow-sm"
+      type="email"
+      name="email"
+     
+      placeholder="Enter email"
+      required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label fw-bold">📞 Phone</label>
+    <input
+      class="form-control rounded-pill shadow-sm"
+      type="text"
+      name="phone"
+    
+      placeholder="Enter phone number"
+      required />
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label fw-bold">🏷️ Membership Type</label>
+    <select
+      class="form-select rounded-pill shadow-sm"
+      name="membershipType"
+     
+      required>
+      <option value="" disabled selected>Choose type</option>
+      <option value="Gold">🥇 Gold</option>
+      <option value="Silver">🥈 Silver</option>
+      <option value="Platinum">🏆 Platinum</option>
+    </select>
+  </div>
+
+  <button
+    class="btn btn-gradient btn-primary w-100 rounded-pill shadow"
+    type="submit">
+    💾 Save Member
+  </button>
+</form>

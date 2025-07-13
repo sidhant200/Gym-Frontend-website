@@ -13,6 +13,10 @@ import { AdminComponent } from './admin/admin.component';
 import { MemberComponent } from './member/member.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateMemberComponent } from './member/create-member/create-member.component';
+import { UpdateMemberComponent } from './member/update-member/update-member.component';
+
 
 @NgModule({
   declarations: [
@@ -26,11 +30,14 @@ import { EmployeeComponent } from './employee/employee.component';
     AdminComponent,
     MemberComponent,
     TrainerComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    CreateMemberComponent,
+    UpdateMemberComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

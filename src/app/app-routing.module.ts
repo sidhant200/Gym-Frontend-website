@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { MemberComponent } from './member/member.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { CreateMemberComponent } from './member/create-member/create-member.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,12 +24,15 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: 'member', component: MemberComponent },
+      { path: 'member', component: MemberComponent},
       { path: 'employee', component: EmployeeComponent },
       {path: 'trainer' , component: TrainerComponent},
       { path: '', redirectTo: 'member', pathMatch: 'full' }
     ]
   },
+   {path: 'admin/member/create-member',  // flat route, not nested
+    component: CreateMemberComponent
+  }
 
 ];
 

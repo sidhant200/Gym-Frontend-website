@@ -1,31 +1,76 @@
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container mt-4">
+  <!-- Header + Create Button -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Member List</h2>
+    <button class="btn btn-success" (click)="openModal()">➕ Create Member</button>
+  </div>
 
+
+<div class="container mt-4">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+          <th scope="col">ID</th> <!-- member.id -->
+          <th scope="col">Name</th> <!-- member.name -->
+          <th scope="col">Phone</th> <!-- member.phone -->
+          <th scope="col">Email</th>
+          <th scope="col">Membership</th>
+          <th scope="col">edit options</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let member of members">
+          <td>{{ member.id }}</td> <!-- ID from backend -->
+          <td>{{ member.name }}</td> <!-- Name -->
+          <td>{{ member.phone }}</td> <!-- Phone -->
+          <td>{{ member.email }}</td>
+          <td>{{ member.membershipType }}</td>
+         <td>
+  <button type="button" class="btn btn-primary btn-no-hover" (click)="openEditModal(member)">edit</button>
+  <button type="button" class="btn btn-danger btn-no-hover mx-3" (click)="ondeleteMember(member.id!)">delete</button>
+</td>
+ <!-- Email -->
+        </tr>
+      </tbody>
+    </table>
+    <!-- Modal goes here, below the table -->
+  <div class="modal fade show d-block" tabindex="-1" *ngIf="showModal" style="background-color: rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow-lg">
+        <div class="modal-header">
+          <h5 class="modal-title">Create New Member</h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Your form component inside modal -->
+          <app-create-member></app-create-member>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+        </div>
+  </div>
+
+  <!-- 🔽 Edit Modal -->
+<div class="modal fade show d-block" tabindex="-1" *ngIf="showEditModal" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Member</h5>
+        <button type="button" class="btn-close" (click)="closeEditModal()"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Pass selected member to update form -->
+        <app-update-member  (updated)="onMemberUpdated()"></app-update-member>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="closeEditModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   
+</div>
+
+<router-outlet></router-outlet>
