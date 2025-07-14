@@ -52,7 +52,7 @@ export class MemberComponent {
       })
     }
 
-
+    
     
   
 
@@ -86,6 +86,12 @@ export class MemberComponent {
     this.closeEditModal();  // Close the edit modal
     this.getAllMembers();     // Reload member list to reflect changes
   }
+
+  onMemberCreated(): void {
+  this.closeModal();      // Close the create modal
+  this.getAllMembers();   // Refresh the member list
+}
+
 
   
 

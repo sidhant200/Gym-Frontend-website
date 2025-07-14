@@ -5,7 +5,7 @@
       class="form-control rounded-pill shadow-sm"
       type="text"
       name="name"
-     
+      [(ngModel)] = "member.name"
       placeholder="Enter member name"
       required />
   </div>
@@ -16,7 +16,7 @@
       class="form-control rounded-pill shadow-sm"
       type="email"
       name="email"
-     
+      [(ngModel)] = "member.email"
       placeholder="Enter email"
       required />
   </div>
@@ -27,7 +27,7 @@
       class="form-control rounded-pill shadow-sm"
       type="text"
       name="phone"
-    
+      [(ngModel)] = "member.phone"
       placeholder="Enter phone number"
       required />
   </div>
@@ -37,7 +37,7 @@
     <select
       class="form-select rounded-pill shadow-sm"
       name="membershipType"
-     
+      [(ngModel)] = "member.membershipType"
       required>
       <option value="" disabled selected>Choose type</option>
       <option value="Gold">🥇 Gold</option>

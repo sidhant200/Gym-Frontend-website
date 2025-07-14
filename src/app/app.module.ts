@@ -16,6 +16,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateMemberComponent } from './member/create-member/create-member.component';
 import { UpdateMemberComponent } from './member/update-member/update-member.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { UpdateMemberComponent } from './member/update-member/update-member.comp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -44,7 +44,7 @@
         </div>
         <div class="modal-body">
           <!-- Your form component inside modal -->
-          <app-create-member></app-create-member>
+          <app-create-member (memberCreated) = "onMemberCreated()"></app-create-member>
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" (click)="closeModal()">Close</button>

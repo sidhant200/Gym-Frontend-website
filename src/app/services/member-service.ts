@@ -24,4 +24,10 @@ export class MemberServiceService {
     return this.http.delete(`http://localhost:8080/member/${id}` , {responseType:'text'});
 
   }
+
+  //create member
+
+  createMember(member:Member):Observable<Member>{
+    return this.http.post(`${this.baseUrl}` , member) as Observable<Member>;
+  }
 }
