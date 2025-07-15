@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Member } from '../models/member';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 
 @Injectable({
@@ -30,4 +31,15 @@ export class MemberServiceService {
   createMember(member:Member):Observable<Member>{
     return this.http.post(`${this.baseUrl}` , member) as Observable<Member>;
   }
+
+  search(name?: string, email?: string, phone?: string, id?: number): Observable<any[]> {
+  let params = new HttpParams();
+  if (name) params = params.set('name', name);
+  if (email) params = params.set('email', email);
+  if (phone) params = params.set('phone', phone);
+  if (id !== undefined && id !== null) params = params.set('id', id.toString());
+
+  return this.http.get<any[]>(`http://localhost:8080/member/search`, { params });
+}
+
 }

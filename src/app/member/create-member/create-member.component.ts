@@ -25,8 +25,7 @@ export class CreateMemberComponent {
   onSubmit(){
     this.createMember(this.member);
     this.memberComponent.getAllMembers();
-    this.router.navigate(['/admin/members']);
-
+   
     
   }
 

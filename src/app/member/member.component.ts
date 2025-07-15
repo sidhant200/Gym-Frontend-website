@@ -12,6 +12,12 @@ import { filter } from 'rxjs/operators';
 })
 export class MemberComponent {
   members: Member[] = [];
+  searchForm = {
+  name: '',
+  email: '',
+  phone: ''
+
+};
 
   constructor(private memberService : MemberServiceService , private router: Router , private route: ActivatedRoute){}
 
@@ -50,6 +56,34 @@ export class MemberComponent {
         }
 
       })
+    }
+
+   searchPerformed = false;
+
+onSearch() {
+  this.memberService.search(
+    this.searchForm.name,
+    this.searchForm.email,
+    this.searchForm.phone,
+    
+  ).subscribe({
+    next: (data) => {
+      console.log("🔍 Search result:", data);
+      this.members = data;
+      this.searchPerformed = true;
+    },
+    error: (err) => {
+      console.error('Search error', err);
+      this.members = [];
+      this.searchPerformed = true;
+    }
+  });
+}
+
+    
+
+    onReset(){
+
     }
 
     
