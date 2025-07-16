@@ -1,1 +1,39 @@
-<p>update-member works!</p>
+<div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Member</h5>
+        <button type="button" class="btn-close" (click)="closeModal.emit()"></button>
+      </div>
+      <div class="modal-body" *ngIf="member">
+        <!-- Your form goes here -->
+        <form (ngSubmit)="onSubmit()" #updateForm="ngForm">
+          <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" [(ngModel)]="member.name" name="name" required />
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input type="email" class="form-control" [(ngModel)]="member.email" name="email" required />
+          </div>
+          <div class="mb-3">
+            <label>Phone</label>
+            <input type="text" class="form-control" [(ngModel)]="member.phone" name="phone" required />
+          </div>
+          <div class="mb-3">
+            <label>Membership</label>
+            <select class="form-control" [(ngModel)]="member.membershipType" name="membershipType" required>
+              <option>Gold</option>
+              <option>Silver</option>
+              <option>Platinum</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button type="button" class="btn btn-secondary" (click)="closeModal.emit()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

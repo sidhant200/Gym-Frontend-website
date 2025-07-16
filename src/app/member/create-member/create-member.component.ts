@@ -20,6 +20,8 @@ export class CreateMemberComponent {
     membershipType: ''
   };
 
+  errorMessage: string = '';
+
   @Output() memberCreated = new EventEmitter<void>();
 
   onSubmit(){
@@ -35,11 +37,26 @@ export class CreateMemberComponent {
         console.log('member created succesfull' , data);
         this.memberCreated.emit();
 
-      }
+
+      },
+       error: (err) => {
+    console.error('❌ Error:', err);
+
+    // If backend returns plain text error (like "Email already exists")
+    alert(err.error);
+   if (err.status === 409) {
+      // ✅ Show custom message for 409 error
+      this.errorMessage = '❌ A member with this email or phone already exists.';
+    } else {
+      // Handle other errors
+      this.errorMessage = '❌ Something went wrong. Please try again.';
+    }
       
-    })
+    }
    
 
-  }
+  });
 
+  }
 }
+

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Member } from '../models/member';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
@@ -28,9 +28,30 @@ export class MemberServiceService {
 
   //create member
 
-  createMember(member:Member):Observable<Member>{
-    return this.http.post(`${this.baseUrl}` , member) as Observable<Member>;
-  }
+ createMember(member: Member): Observable<Member> {
+  return this.http.post<Member>(`${this.baseUrl}`, member).pipe(
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 409) {
+        // Customize error message based on backend message
+        return throwError(() => new Error(error.error || 'Duplicate email or phone'));
+      }
+      return throwError(() => error);
+    })
+  );
+}
+
+updateMember(id: number , member:Member):Observable<Member>{
+  return this.http.put<Member>(`${this.baseUrl}/${id}` , member).pipe(
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 500) {
+        // Customize error message based on backend message
+        return throwError(() => new Error(error.error || 'Duplicate email or phone'));
+      }
+      return throwError(() => error);
+    })
+  );
+}
+
 
   search(name?: string, email?: string, phone?: string, id?: number): Observable<any[]> {
   let params = new HttpParams();

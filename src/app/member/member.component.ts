@@ -3,6 +3,7 @@ import { Member } from '../models/member'
 import { MemberServiceService } from '../services/member-service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { UpdateMemberComponent } from './update-member/update-member.component';
 
 
 @Component({
@@ -15,8 +16,8 @@ export class MemberComponent {
   searchForm = {
   name: '',
   email: '',
-  phone: ''
-
+  phone: '',
+  id : ''
 };
 
   constructor(private memberService : MemberServiceService , private router: Router , private route: ActivatedRoute){}
@@ -61,12 +62,14 @@ export class MemberComponent {
    searchPerformed = false;
 
 onSearch() {
+  const parsedId = this.searchForm.id?.trim() ? Number(this.searchForm.id) : undefined;
   this.memberService.search(
     this.searchForm.name,
     this.searchForm.email,
     this.searchForm.phone,
-    
-  ).subscribe({
+    parsedId
+
+    ).subscribe({
     next: (data) => {
       console.log("🔍 Search result:", data);
       this.members = data;
@@ -82,7 +85,17 @@ onSearch() {
 
     
 
-    onReset(){
+    onReset():void {
+      this.searchForm = {
+        name : '',
+        email: '',
+        phone: '',
+        id: ''
+      }
+      this.getAllMembers();
+      this.searchPerformed = false;
+
+
 
     }
 
@@ -108,6 +121,8 @@ onSearch() {
   openEditModal(member: Member): void {
     this.selectedMember = member;
     this.showEditModal = true;
+    console.log('edit clicked')
+    console.log("Opening modal for:", member);
   }
 
   // Closes edit modal
