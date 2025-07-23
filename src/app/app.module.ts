@@ -13,10 +13,11 @@ import { AdminComponent } from './admin/admin.component';
 import { MemberComponent } from './member/member.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CreateMemberComponent } from './member/create-member/create-member.component';
 import { UpdateMemberComponent } from './member/update-member/update-member.component';
 import { FormsModule } from '@angular/forms';
+import { AuthInterceptor } from './services/auth-intercept';
 
 
 @NgModule({
@@ -39,9 +40,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
