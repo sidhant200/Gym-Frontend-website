@@ -47,11 +47,11 @@
               <form (ngSubmit)="Login()">
                 <div class="mb-3">
                   <label for="signinEmail" class="form-label">Email address</label>
-                  <input type="text" ([ngModel]) = "username" name="username" class="form-control" id="signinEmail" placeholder="name@example.com">
+                  <input type="text" [(ngModel)] = "username" name="username" class="form-control" id="signinEmail" placeholder="name@example.com">
                 </div>
                 <div class="mb-3">
                   <label for="signinPassword" class="form-label">Password</label>
-                  <input type="text" ([ngModel]) = "password" name="password" class="form-control" id="signinPassword" placeholder="Enter your password">
+                  <input type="text" [(ngModel)] = "password" name="password" class="form-control" id="signinPassword" placeholder="Enter your password">
                 </div>
                 <button type="submit" class="btn btn-dark w-100">Login</button>
               </form>
